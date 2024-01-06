@@ -37,3 +37,29 @@ function showTask(){
 }
 
 showTask()
+
+
+// +++++++++++++ Time/Day +++++++++
+
+
+const Daytime = document.getElementsByClassName("time_day")[0];
+
+function updateTime(){
+let today = new Date();
+let day = today.getDay();
+let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday"];
+// console.log(`Today is: ${daylist[day]}`);
+
+let hour = today.getHours();
+let minutes = today.getMinutes();
+let seconds = today.getSeconds();
+
+// console.log(`Today time is: ${hour}: ${minutes}min: ${seconds}sec`);
+
+Daytime.innerHTML = (`${daylist[day]} ${hour}h: ${minutes}min: ${seconds}sec`);
+}
+// Initial update
+updateTime();
+
+// Update every second (1000 milliseconds)
+setInterval(updateTime, 1000);
